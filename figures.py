@@ -174,7 +174,7 @@ class Knight(Figure):
 
             for i in moves:
                 move = (current_position[0] + i[0], current_position[1] + i[1])
-                if 0 <= move[0] <= self.table.rows and 0 <= move[1] <= self.table.columns:
+                if 0 <= move[0] < self.table.rows and 0 <= move[1] < self.table.columns:
                     if move not in other_positions or self.player != other_figures[other_positions.index(move)].player:
                         self._available_moves.add(move)
 
