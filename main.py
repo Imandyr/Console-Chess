@@ -1,7 +1,7 @@
-from game import ConsoleChess
+from src.game import Menu
 
 
 if __name__ == "__main__":
-    game = ConsoleChess()
+    game = Menu()
     while True:
         game.start()
