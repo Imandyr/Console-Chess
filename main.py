@@ -1,7 +1,9 @@
-from src.game import Menu
+""" This script is starting the game. """
+
+
+from src.console_chess.game import Menu
 
 
 if __name__ == "__main__":
-    game = Menu()
     while True:
-        game.start()
+        Menu.start()
