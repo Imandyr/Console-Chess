@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 
 [project]
-name = "console_chess"
-version = "1.6.0"
+name = "console_chess_imandyr"
+version = "1.6.5"
 authors = [{name="Imandyr", email="imandyremail@gmail.com"}]
 description = "Implementation of chess game which can be played through console."
 readme = "README.md"

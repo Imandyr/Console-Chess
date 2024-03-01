@@ -86,10 +86,14 @@ class Pawn(Figure):
             oblique_moves = [(current_position[0] + 1, current_position[1] + 1),
                              (current_position[0] + 1, current_position[1] - 1)]
 
-        straight_moves = [i for i in straight_moves if i[0] < self.table.rows and i[1] < self.table.columns]
-        oblique_moves = [i for i in oblique_moves if i[0] < self.table.rows and i[1] < self.table.columns]
+        bound = lambda x: [i for i in x if self.table.rows > i[0] >= 0 and self.table.columns > i[1] >= 0]
+        straight_moves = bound(straight_moves)
+        oblique_moves = bound(oblique_moves)
 
         for f in other_figures:
+            if straight_moves[0] == f.position:
+                straight_moves = []
+                break
             try:
                 straight_moves.remove(f.position)
             except ValueError:

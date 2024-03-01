@@ -204,6 +204,22 @@ class TestsOfPawn:
         t, p1, p2, pa = table_player_player_pawn
         assert pa.available_moves_ignore_ownership == {(4, 1), (4, 3)}
 
+    def test_3(self, table_player_player) -> None:
+        t, p1, p2 = table_player_player
+        pa = Pawn(t, p2)
+        t.set_figure(pa, (1, 2))
+        t.set_figure(Queen(t, p1), (2, 2))
+        print(t)
+        print(pa.available_moves)
+
+        assert len(pa.available_moves) == 0
+
+    def test_4(self, table_player_player) -> None:
+        t, p1, p2 = table_player_player
+        pa = Pawn(t, p1)
+        t.set_figure(pa, (1, 2))
+        assert pa.available_moves == {(0, 2)}
+
 
 @pytest.fixture
 def fully_surrounded(table_player_player) -> tuple[Table, Player, Player, tuple[int, int]]:
